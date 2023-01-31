@@ -7,7 +7,7 @@ public class Tank : MonoBehaviour
    
    [SerializeField] float damageDealt = 10f;
    [SerializeField] float damageTaken;
-   [SerializeField] public float tankSpeed {get; private set;}
+   [SerializeField] public float tankSpeed = 50; 
    [SerializeField] public float turboSpeed {get; private set;}
    [SerializeField] float tankRotationSpeed;
    [SerializeField] float bulletForce;
