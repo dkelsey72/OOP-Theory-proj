@@ -12,6 +12,16 @@ public class Ammo : MonoBehaviour
   {
     // deal damage to other tank in the amt of damageDealt
   } 
+
+  void OnTriggerEnter(Collider other)
+  {
+    if (other.gameObject.tag == "Target")
+    {
+      Destroy(other.gameObject);
+      Destroy(gameObject);
+      Debug.Log("Deal Damage " + damageDealt );
+    }
+  }
   
   
 }
