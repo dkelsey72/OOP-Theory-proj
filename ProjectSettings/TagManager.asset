@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BigSlowTank
   - FastTank
+  - Target
   layers:
   - Default
   - TransparentFX
