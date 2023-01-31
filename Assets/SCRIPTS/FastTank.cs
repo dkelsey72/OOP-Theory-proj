@@ -4,32 +4,19 @@ using UnityEngine;
 
 public class FastTank : Tank
 {
-
-    [SerializeField] Rigidbody bigTankBullet;
-    [SerializeField] int bigDamage;
-
-    
-    
-    
-    
+    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    
+    // Update is called once per frame
     void Update()
     {
         Move();
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
-        }else if (Input.GetKeyDown(KeyCode.B))
-        {
-            Shoot(bigTankBullet);
         }
-
-
     }
-
 }
