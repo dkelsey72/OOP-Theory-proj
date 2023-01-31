@@ -14,5 +14,9 @@ public class FastTank : Tank
     void Update()
     {
         Move();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
     }
 }
