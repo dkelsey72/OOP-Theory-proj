@@ -7,7 +7,8 @@ public class Tank : MonoBehaviour
    
    [SerializeField] float damageDealt = 10f;
    [SerializeField] float damageTaken;
-   [SerializeField] float tankSpeed;
+   [SerializeField] public float tankSpeed {get; private set;}
+   [SerializeField] public float turboSpeed {get; private set;}
    [SerializeField] float tankRotationSpeed;
    [SerializeField] float bulletForce;
    [SerializeField] Rigidbody bulletPrefab;
@@ -34,9 +35,9 @@ public class Tank : MonoBehaviour
     // add script to move generic Tank
     horizontalInput = Input.GetAxis("Horizontal");
     verticalInput = Input.GetAxis("Vertical");
-
-    transform.Translate(Vector3.forward * tankSpeed * Time.deltaTime * verticalInput);
-    transform.Rotate(Vector3.up * tankRotationSpeed * Time.deltaTime * horizontalInput);
+   // make sure only positive numbers are used
+    transform.Translate(Vector3.forward * Mathf.Abs(tankSpeed) * Time.deltaTime * verticalInput);
+    transform.Rotate(Vector3.up * Mathf.Abs(tankRotationSpeed) * Time.deltaTime * horizontalInput);
 
 
    }
@@ -47,7 +48,17 @@ public class Tank : MonoBehaviour
       var bull = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
       bull.AddForce(transform.forward * bulletForce, ForceMode.Impulse);
 
+
     
+   }
+
+   protected void Shoot(Rigidbody ammo)
+   {
+   // add script to shoot bullet from Tank
+      var bull = Instantiate(ammo, firePoint.transform.position, Quaternion.identity);
+      bull.AddForce(transform.forward * bulletForce, ForceMode.Impulse);
+   
+ 
    }
    
 }
