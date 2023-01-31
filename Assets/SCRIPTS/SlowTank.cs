@@ -11,7 +11,7 @@ public class SlowTank : Tank
     // make an override of the vehicle speed
     float tankBoost = 1.1f;
     private float turboAmount = 5f;
-    
+    //[SerializeField] public bool isPowerUp;
     
     
     void Start()
@@ -23,7 +23,7 @@ public class SlowTank : Tank
     void Update()
     {
               
-            Move();
+            Move(isPowerUp);
         
         
         if (Input.GetKeyDown(KeyCode.Space))

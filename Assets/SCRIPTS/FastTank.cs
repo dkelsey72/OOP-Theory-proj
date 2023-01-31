@@ -8,6 +8,7 @@ public class FastTank : Tank
     [SerializeField] Rigidbody bigTankBullet;
     [SerializeField] int bigDamage;
 
+    //[SerializeField] public bool isPowerUp;
     
     
     
@@ -20,12 +21,14 @@ public class FastTank : Tank
     
     void Update()
     {
-        Move();
+        //INHERITANCE
+        Move(isPowerUp);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
         }else if (Input.GetKeyDown(KeyCode.B))
         {
+            //POLYMORPHISM
             Shoot(bigTankBullet);
         }
 
